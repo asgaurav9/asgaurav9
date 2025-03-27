@@ -123,9 +123,51 @@ app.get('/add', (req, res) => {
     logger.info(`Addition: ${num1} + ${num2} = ${result}`);
     res.json({ result });
   });
+
+  app.get('/power', (req, res) => {
+    const { base, exponent } = req.query;
+  
+    if (isNaN(base) || isNaN(exponent)) {
+      return res.status(400).json({ error: 'Invalid input. Both base and exponent must be numbers.' });
+    }
+  
+    const result = Math.pow(parseFloat(base), parseFloat(exponent));
+    res.json({ result });
+  });
+  
+  app.get('/sqrt', (req, res) => {
+    const { number } = req.query;
+  
+    if (isNaN(number)) {
+      return res.status(400).json({ error: 'Invalid input. The value must be a number.' });
+    }
+  
+    const num = parseFloat(number);
+    if (num < 0) {
+      return res.status(400).json({ error: 'Square root of negative numbers is not allowed.' });
+    }
+  
+    const result = Math.sqrt(num);
+    res.json({ result });
+  });
+  
+  app.get('/modulo', (req, res) => {
+    const { num1, num2 } = req.query;
+  
+    if (isNaN(num1) || isNaN(num2)) {
+      return res.status(400).json({ error: 'Invalid input. Both num1 and num2 must be numbers.' });
+    }
+  
+    if (parseFloat(num2) === 0) {
+      return res.status(400).json({ error: 'Modulo by zero is not allowed.' });
+    }
+  
+    const result = parseFloat(num1) % parseFloat(num2);
+    res.json({ result });
+  });
   
 app.get('/', (req, res) => {
-    res.send('Welcome to the Calculator Microservice. Use /add, /subtract, /multiply, or /divide.');
+    res.send('Welcome to the Calculator Microservice. Use /add, /subtract, /multiply, /divide, /power, /sqrt or /modulo.');
   });
 
 // Start the server
