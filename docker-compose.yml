@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    image: asgaurav9/my-web-app:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:3000/"]
+      interval: 30s
+      retries: 3
+      timeout: 5s
+      start_period: 30s
+    restart: always
