@@ -13,13 +13,9 @@ RUN npm install
 # Copy the application code into the container
 COPY . .
 
-# Expose port 3000 to access the app outside the container
-EXPOSE 3000
+# Expose port 8080 to access the app outside the container
+EXPOSE 8080
 
 # Start the application
 CMD ["npm", "start"]
-
-# Add this at the end of your Dockerfile
-HEALTHCHECK --interval=30s --timeout=5s --retries=3 --start-period=30s \
-CMD curl --fail http://localhost:3000/ || exit 1
 
