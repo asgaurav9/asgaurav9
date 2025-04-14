@@ -4,9 +4,9 @@ metadata:
   name: nodejs-app-service
 spec:
   selector:
-    app: nodejs-app
+    app: nodejs-app  # Ensure this matches the label of the app in the Deployment
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 3040  # Port your Node.js app listens on
-  type: LoadBalancer  # Expose the service with LoadBalancer
+      port: 80      # External port to expose
+      targetPort: 80 # Container port that the app is listening on
+  type: ClusterIP   # Use NodePort or LoadBalancer for external access

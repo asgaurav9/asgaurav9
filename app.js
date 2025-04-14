@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
+const port = 80;
 
-// Route handler for the root URL
+// Simple route to confirm the server is running
 app.get('/', (req, res) => {
-  res.send('Hello Kubernetes!');
+  res.send('Hello, Node.js application is running!');
 });
 
-// Ensure the app listens on the correct port and accepts connections
-app.listen(3040, '0.0.0.0', () => {
-  console.log('Server is running on port 3040');
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
