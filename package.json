@@ -1,26 +1,8 @@
 {
-  "name": "week1",
+  "name": "monitoring-app",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "jasmine"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/asgaurav9/asgaurav9.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/asgaurav9/asgaurav9/issues"
-  },
-  "homepage": "https://github.com/asgaurav9/asgaurav9#readme",
-  "description": "",
   "dependencies": {
-    "express": "^4.21.2"
-  },
-  "devDependencies": {
-    "jasmine": "^5.6.0",
-    "request": "^2.88.2"
+    "express": "^4.18.2"
   }
 }
